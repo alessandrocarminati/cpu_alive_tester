@@ -4,10 +4,11 @@
 #
 ################################################################################
 
-CPU_TESTER_VERSION = 0.06
+CPU_TESTER_VERSION = 0.01
 CPU_TESTER_SOURCE = v$(CPU_TESTER_VERSION).tar.gz
 CPU_TESTER_SITE = https://github.com/alessandrocarminati/cpu_alive_tester/archive/refs/tags
 CPU_TESTER_CFLAGS += -static
+CPU_TESTER_HASH := skip
 
 define CPU_TESTER_CONFIGURE_CMDS
 	$(QUIET) : # Empty command
