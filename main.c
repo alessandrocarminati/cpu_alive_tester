@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 		}
 
 	printf("[%d] Process is allowed to run on the following CPUs:\n", pid);
-	for (cpu = 0; cpu < CPU_SETSIZE; cpu++) if (CPU_ISSET(cpu, &cpuset)) printf("CPU %d\n", cpu);
+	for (cpu = 0; cpu < CPU_SETSIZE; cpu++) if (CPU_ISSET(cpu, &cpuset)) printf("[%d] CPU %d\n", pid, cpu);
 
 	printf("[%d] Sleeps for %d second(s)\n", pid, value);
 	fflush(stdout);
