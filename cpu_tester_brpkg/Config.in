@@ -1,0 +1,6 @@
+config BR2_PACKAGE_CPU_TESTER
+	bool "cpu_tester"
+	help
+	  Simple monothread app to test cpu alive.
+
+comment "Simple monothread app to test cpu alive"
