@@ -33,6 +33,19 @@ int main(int argc, char *argv[]) {
 	printf("[%d] Sleeps for %d second(s)\n", pid, value);
 	fflush(stdout);
     	sleep(value);
-	printf("[%d] Current CPU: %d\n", pid, sched_getcpu());
+	printf("[%d] Current  starting CPU: %d\n", pid, sched_getcpu());
+	for (int i=1; i<8;i++) {
+		pid_t pidn = fork();
+		cpu_set_t cpuset2;
+		CPU_ZERO(&cpuset2);
+		CPU_SET(i, &cpuset2);
+		if (pidn == 0) {
+			if (sched_setaffinity(0, sizeof(cpu_set_t), &cpuset2) == -1) {
+				printf( "Failed to set CPU affinity\n");
+				}
+			printf("[%d] Current CPU: %d\n", getpid(), sched_getcpu());
+			return 0;
+			}
+		}
 	return 0;
 }
