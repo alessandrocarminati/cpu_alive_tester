@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 	fflush(stdout);
     	sleep(value);
 	printf("[%d] Current  starting CPU: %d\n", pid, sched_getcpu());
-	for (int i=1; i<8;i++) {
+	for (int i=0; i<8;i++) {
 		pid_t pidn = fork();
 		cpu_set_t cpuset2;
 		CPU_ZERO(&cpuset2);
